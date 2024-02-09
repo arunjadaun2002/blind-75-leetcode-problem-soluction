@@ -1,0 +1,46 @@
+// blind 75 leetcode solction 
+******************************
+
+// Contain dublicates
+
+#include <iostream>
+#include<map>
+
+using namespace std;
+
+bool  ans(int arr[], int size){
+  map<int,int>mp;
+  int ans=1;
+  for(int i=0;i<size;i++){
+      mp[arr[i]]++;
+  }
+ /*   for(auto it=mp.begin();it!=mp.end();it++){
+        cout<<it->first<<"  "<<it->second<<" "<<endl;  */
+    //}
+    for(auto it=mp.begin();it!=mp.end();it++){
+        if(it->second>1){
+            return true;
+            
+        }
+        
+    }
+    return false;
+}
+
+
+
+int main()
+{
+   int size;
+   cout<<"enter the size of the array "<<endl;
+   cin>>size;
+   int arr[size];
+   for(int i=0;i<size;i++){
+       cin>>arr[i];
+   }
+   cout<<ans(arr,size);
+   
+   
+
+    return 0;
+}
