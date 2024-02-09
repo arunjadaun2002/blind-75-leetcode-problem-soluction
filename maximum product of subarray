@@ -1,0 +1,37 @@
+// blind 75 leetcode soluciton
+********************************
+
+// maximum product of subarray
+********************************
+
+// 75 leetcode problems
+// maximum product of subarray 
+#include<iostream>
+using namespace std;
+int ans(int arr[], int size){
+    int ans=arr[0];
+    int maxi=ans;
+    int mini=ans;
+    for(int i=1;i<size;i++){
+        if(arr[0]<0){
+            swap(maxi,mini);
+        }
+        maxi=max(arr[i],maxi*arr[i]);
+        mini=min(arr[i],mini*arr[i]);
+        ans=max(ans,maxi);
+    }
+    return ans;
+}
+int main(){
+    int size;
+    cout<<"enter the size of the array "<<endl;
+    cin>>size;
+    int arr[size];
+    for(int i=0;i<size;i++){
+        cin>>arr[i];
+        
+    }
+    cout<<ans(arr,size);
+}
+
+
