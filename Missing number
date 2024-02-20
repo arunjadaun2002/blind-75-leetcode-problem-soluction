@@ -16,3 +16,28 @@ public:
           return miss;
     }
 };
+
+this above code has time complixity O(nlogn)
+*******************************************
+
+  below code has has O(1) time complixity 
+
+
+********************************************
+now we reduce this time complixity to O(1)
+********************************************
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+          int n=nums.size();
+          int totalsum= n*(n+1)/2;
+          int arraysum=0;
+
+          for(int num:nums){
+              arraysum+=num;
+          }
+          return totalsum - arraysum;
+
+    }
+};
+******************************************8
