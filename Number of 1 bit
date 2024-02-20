@@ -1,0 +1,19 @@
+// 75 leetcode problems soluction
+
+// Number of 1 bit 
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int one=0;
+        while(n>0){
+            if(n&1){                           // here we use & because we have to check least bit if we use == then it check whole n 
+                one++;
+            }
+            n=n/2;
+
+        }
+        return one;
+        
+    }
+};
