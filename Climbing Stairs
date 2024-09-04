@@ -2,3 +2,19 @@
 
 // Climbing Stairs 
 // IN this problem you have to given a n stairs find the total possible ways to up in the stairs 
+#include<bits/stdc++.h>
+using namespace std;
+int solve(int n){
+    if(n==1 && n==2) return n;
+
+    int first=solve(n-1);
+    int second=solve(n-2);
+
+    return first+second;
+}
+int main(){
+    int n;
+    cout<<"Enter the value of n"<<endl;
+    cin>>n;
+
+}
