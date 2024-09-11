@@ -45,6 +45,42 @@ int mapping(node* &root, int target, unordered_map<node*,node*>&mp){
     return res;
 
 }
+int burn(node* &targetnode, unordered_map<node*,node*>&mp){
+    queue<node*>q;
+    q.push(targetnode);
+    unordered_map<node*,bool>visited;
+    
+    while(!q.empty()){
+        bool flag=false;
+        int size=q.size();
+        int count=0;
+        for(int i=0;i<size;i++){
+            node* front=q.front();
+            q.pop();
+
+            if(front->left && !visisted[front->left]){
+                q.push(front->left);
+                visited[front->left]=true;
+                flag=true;
+                
+            }
+            if(front->right && !visited[front->right]){
+                q.push(front->right);
+                visited[front->right]=true;
+                flag=true;
+            }
+
+            if(mp[front] && !visited[mp[front]]){
+                q.push(mp[front]);
+                visited[mp[front]]=true;
+                flag=true;
+            }
+        }
+        if(flag==true)count++;
+    }
+    return count;
+
+}
 
 
 int time(node* root, int target){
